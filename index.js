@@ -53,6 +53,9 @@ const error = document.querySelector(".error");
 const cardContainer = document.querySelector(".card-container");
 
 
+const ultimaBusqueda = JSON.parse(localStorage.getItem("ultimaPizza"));
+
+
 const encontrarPizza = (e) => {
   e.preventDefault();
   const findPizzaId = pizzas.find(pizza => {
@@ -82,6 +85,11 @@ const encontrarPizza = (e) => {
     cardContainer.innerHTML = ''
     cardContainer.style.background = 'none';
   };
+  const ultimaBusqueda = JSON.parse(localStorage.getItem("ultimaPizza"));
+  if (ultimaBusqueda) {
+    createPizzaCard(ultimaBusqueda);
+  };
+
   form.reset();
 };
 
